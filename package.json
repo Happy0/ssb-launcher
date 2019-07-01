@@ -10,7 +10,7 @@
   "license": "MIT",
   "dependencies": {
     "command-line-args": "^5.1.1",
-    "scuttlebutt-akka-persistence-index": "file:../scuttlebutt-akka-persistence-index",
+    "scuttlebutt-akka-persistence-index": "github:openlawteam/scuttlebutt-akka-persistence-index#master",
     "ssb-config": "^3.2.5",
     "ssb-friends": "^4.0.0",
     "ssb-gossip": "^1.0.10",
