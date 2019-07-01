@@ -34,8 +34,8 @@ function createSbot() {
 
     var Create = require('ssb-server')
         .use(require('ssb-private'))
-        .use(require('ssb-server/plugins/master'))
-        .use(require('ssb-server/plugins/local'))
+        .use(require('ssb-master'))
+        .use(require('ssb-local'))
 
 	.use(require('ssb-query'))
         .use(require('ssb-gossip'))
