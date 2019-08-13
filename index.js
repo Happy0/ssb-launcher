@@ -17,8 +17,10 @@ const invite = options.invite;
 const generateInvite = options.generate;
 
 if (!port || !dir) {
-    console.log("Port and dir flags required.");
+    console.log("Fatal: port (-p) and dir (-d) flags required.");
+    process.exit(1);
 }
+console.log(`Starting on port ${port} using data directory ${dir} ...`);
 
 function createSbot() {
 
