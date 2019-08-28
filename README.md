@@ -13,9 +13,9 @@ node index.js --port 8010 --dir /home/user1/instance
 
 # Docker
 
-A docker image can be built using the `Dockerfile` using `docker build .`
+A Docker image can be built using the `Dockerfile` using `docker build .`
 
-The image can then be ran as a docker container. A directory from the host system can be mounted to the container's configured `ssb` directory in order to use an existing ssb data directory by configuring the container's ssb directory with the `DATA` environment variable, and then using that as the mount point.
+The image can then be run as a Docker container. A directory from the host system can be mounted to the container's configured `ssb` directory in order to use an existing ssb data directory by configuring the container's ssb directory with the `DATA` environment variable, and then using that as the mount point.
 
 
 ```
