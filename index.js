@@ -5,6 +5,7 @@ var commandLineArgs = require('command-line-args')
 const optionDefinitions = [
     { name: 'port', alias: 'p', type: Number },
     { name: 'dir', alias: 'd', type: String},
+    { name: 'key', alias: 'k', type: String},
     { name: 'invite', type: String},
     { name: 'generate', alias: 'g', type: Boolean}
 ]
@@ -15,20 +16,52 @@ const port = options.port;
 const dir = options.dir;
 const invite = options.invite;
 const generateInvite = options.generate;
+const key = options.key;
 
-if (!port || !dir) {
-    console.log("Fatal: port (-p) and dir (-d) flags required.");
+if (!port) {
+    console.log("Fatal: port (-p) flag required.");
     process.exit(1);
 }
+
+if (!dir) {
+    console.log("--dir flag required");
+    process.exit(1);
+}
+
 console.log(`Starting on port ${port} using data directory ${dir} ...`);
 
+if (key) {
+    console.log("Loaded key from key command line argument");
+}
+
 function createSbot() {
+
+    let keys = null;
+
+    if (!key || key.length === 0) {
+        // If no key was passed in from a command line argument, generate one
+        console.log("key... " + key);
+        console.log("Generating secret key.")
+        keys = ssbKeys.loadOrCreateSync(dir + '/secret');
+    } else {
+        // Passed in as a Base64 encoded environment variable
+        let buff = Buffer.from(key, 'base64');  
+        let keyText = buff.toString('utf-8');
+
+        // The key file generated has # comments at the start, if these are present we remove them
+        // so that we can successfully run JSON.parse on it
+        var jsonText = keyText
+        .replace(/\s*\#[^\n]*/g, '')
+        .split('\n').filter(v => !!v).join('')
+
+        keys = JSON.parse(jsonText);       
+    }
 
     const config = Config('test123', {
         host: "localhost",
         port,
         path: dir,
-        keys: ssbKeys.loadOrCreateSync(dir + '/secret')
+        keys: keys
     })
 
     config.connections.incoming.net[0].host = '127.0.0.1'
