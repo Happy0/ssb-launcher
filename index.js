@@ -40,7 +40,6 @@ function createSbot() {
 
     if (!key || key.length === 0) {
         // If no key was passed in from a command line argument, generate one
-        console.log("key... " + key);
         console.log("Generating secret key.")
         keys = ssbKeys.loadOrCreateSync(dir + '/secret');
     } else {
