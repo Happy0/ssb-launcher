@@ -49,5 +49,5 @@ COPY index.js .
 ENV NPM_CONFIG_LOGLEVEL=info
 ENV DATA=/usr/src/ssb/data
 ENV PORT=8009
+
 ENTRYPOINT ["npm", "run", "start", "--"]
-CMD ["-d", "$DATA", "-p", "$PORT"]
