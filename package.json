@@ -12,6 +12,8 @@
   "dependencies": {
     "command-line-args": "^5.1.1",
     "scuttlebutt-akka-persistence-index": "github:openlawteam/scuttlebutt-akka-persistence-index#e6bc9e2c0da4892edafea8a089fcd59a22329ba1",
+    "ssb-about": "^2.0.1",
+    "ssb-backlinks": "^0.7.3",
     "ssb-config": "^3.2.5",
     "ssb-friends": "^4.0.0",
     "ssb-gossip": "^1.0.10",

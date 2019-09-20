@@ -103,7 +103,8 @@ function createSbot() {
         .use(require('ssb-private'))
         .use(require('ssb-master'))
         .use(require('ssb-local'))
-
+	.use(require('ssb-backlinks'))
+	.use(require('ssb-about'))
 	.use(require('ssb-query'))
         .use(require('ssb-gossip'))
         .use(require('ssb-invite'))
