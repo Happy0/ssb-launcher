@@ -15,6 +15,7 @@
     "ssb-about": "^2.0.1",
     "ssb-backlinks": "^0.7.3",
     "ssb-config": "^3.2.5",
+    "ssb-ebt": "^5.6.7",
     "ssb-friends": "^4.0.0",
     "ssb-gossip": "^1.0.10",
     "ssb-invite": "^2.0.4",

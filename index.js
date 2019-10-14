@@ -109,6 +109,7 @@ function createSbot() {
         .use(require('ssb-gossip'))
         .use(require('ssb-invite'))
         .use(require('ssb-replicate'))
+	.use(require('ssb-ebt'))
         .use(require('ssb-friends'))
         .use(require('scuttlebutt-akka-persistence-index'))
 
